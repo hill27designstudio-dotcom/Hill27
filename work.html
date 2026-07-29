@@ -25,34 +25,36 @@
   <div class="hero-texture"></div>
   <div class="wrap hero-inner">
     <div class="tag on-dark">Selected work</div>
-    <h1>Fabric<span class="script">tells the story first</span></h1>
-    <p class="lede">A look at the Kink Collection — seven fabric blends we developed for Laissez Faire, a sustainable fabric brand carrying the line from India to the world.</p>
+    <h1>Two clients<span class="script">two very different fabrics</span></h1>
+    <p class="lede">From sustainable fabric development for Laissez Faire to hand-painted artwork for DAI — a look at how the work changes shape from client to client.</p>
   </div>
 </section>
 
-<section class="on-cream" style="padding-bottom:60px;">
+<section class="on-cream" style="padding-bottom:0;">
   <div class="wrap">
     <div class="client-strip">
       <span class="client-label">Featured clients</span>
-      <div class="client-badge">
+      <button type="button" class="client-badge tab-trigger active" data-tab="lf">
         <img src="client-lf-mark.png" alt="Laissez Faire">
         <div>
           <div class="name">Laissez Faire</div>
           <div class="sub">Kink Collection · Sustainable Fabrics</div>
         </div>
-      </div>
-      <div class="client-badge">
+      </button>
+      <button type="button" class="client-badge tab-trigger" data-tab="dai">
         <img src="client-dai-mark.png" alt="DAI — Denim As Is">
         <div>
           <div class="name">DAI</div>
           <div class="sub">Denim As Is · Hand-Painted Denim</div>
         </div>
-      </div>
+      </button>
     </div>
   </div>
 </section>
 
-<section class="on-cream" style="padding-top:20px;">
+<div id="panel-lf" class="tab-panel">
+
+<section class="on-cream" style="padding-top:44px;">
   <div class="wrap">
     <div class="section-head" style="margin-bottom:36px;">
       <div>
@@ -122,7 +124,39 @@
   </div>
 </section>
 
-<section class="on-dim">
+<section class="on-maroon">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="tag on-dark">What went into it</div>
+        <h2>From fabric blend to finished campaign</h2>
+      </div>
+    </div>
+    <div class="spec-list">
+      <div class="spec-row">
+        <div class="code">SCOPE</div>
+        <h3>Eight-product fabric collection</h3>
+        <p>Fabric selection, naming, and product positioning across the full Kink Collection range.</p>
+      </div>
+      <div class="spec-row">
+        <div class="code">DELIVERABLES</div>
+        <h3>Trade-show &amp; campaign system</h3>
+        <p>Hero positioning copy, a trade-show deck, mailer, and campaign photography direction.</p>
+      </div>
+      <div class="spec-row">
+        <div class="code">OUTCOME</div>
+        <h3>Ready for Bharat Tex</h3>
+        <p>A complete, on-brand system the client could carry from the show floor to retail.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<div id="panel-dai" class="tab-panel" style="display:none;">
+
+<section class="on-cream" style="padding-top:44px;">
   <div class="wrap">
     <div class="section-head" style="margin-bottom:36px;">
       <div>
@@ -205,28 +239,30 @@
     <div class="section-head">
       <div>
         <div class="tag on-dark">What went into it</div>
-        <h2>From fabric blend to finished campaign</h2>
+        <h2>From blank denim to one-of-one art</h2>
       </div>
     </div>
     <div class="spec-list">
       <div class="spec-row">
         <div class="code">SCOPE</div>
-        <h3>Eight-product fabric collection</h3>
-        <p>Fabric selection, naming, and product positioning across the full Kink Collection range.</p>
+        <h3>Eight hand-painted pieces</h3>
+        <p>Original artwork concepted and painted directly onto denim jackets, vests, and shirts.</p>
       </div>
       <div class="spec-row">
         <div class="code">DELIVERABLES</div>
-        <h3>Trade-show &amp; campaign system</h3>
-        <p>Hero positioning copy, a trade-show deck, mailer, and campaign photography direction.</p>
+        <h3>Product photography &amp; campaign</h3>
+        <p>Studio and lifestyle photography styled to show off the hand-painted detail on each piece.</p>
       </div>
       <div class="spec-row">
         <div class="code">OUTCOME</div>
-        <h3>Ready for Bharat Tex</h3>
-        <p>A complete, on-brand system the client could carry from the show floor to retail.</p>
+        <h3>A signature line of one-offs</h3>
+        <p>A distinct, collectible product line that stands apart from DAI's core denim range.</p>
       </div>
     </div>
   </div>
 </section>
+
+</div>
 
 <footer>
   <div class="wrap">
@@ -243,5 +279,17 @@
   </div>
 </footer>
 
+<script>
+document.querySelectorAll('.tab-trigger').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var tab = btn.getAttribute('data-tab');
+    document.querySelectorAll('.tab-trigger').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('.tab-panel').forEach(function(p){ p.style.display = 'none'; });
+    document.getElementById('panel-' + tab).style.display = '';
+    window.scrollTo({ top: document.querySelector('.client-strip').getBoundingClientRect().top + window.scrollY - 90, behavior: 'smooth' });
+  });
+});
+</script>
 </body>
 </html>

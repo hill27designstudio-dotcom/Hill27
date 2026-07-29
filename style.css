@@ -318,6 +318,21 @@ section.on-maroon{ background:var(--maroon); color:var(--cream); }
 .client-badge .name{ font-family:var(--serif); font-size:17px; }
 .client-badge .sub{ font-family:var(--mono); font-size:10px; opacity:0.6; text-transform:uppercase; letter-spacing:0.05em; }
 
+/* Tab-trigger variant of client-badge (buttons) */
+button.client-badge{
+  background:transparent;
+  cursor:pointer;
+  font-family:inherit;
+  color:inherit;
+  transition:border-color .15s ease, background .15s ease;
+}
+button.client-badge:hover{ border-color:var(--maroon); }
+button.client-badge.active{
+  border-color:var(--maroon);
+  background:rgba(122,42,30,0.06);
+}
+button.client-badge.active .name{ color:var(--maroon); }
+
 /* ===== Work / case study gallery ===== */
 .work-grid{
   display:grid;
